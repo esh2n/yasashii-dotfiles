@@ -1,0 +1,49 @@
+# 简单中文
+
+[prompt]
+save_status = "保存状态"
+unsaved     = "文件有更改"
+all_saved   = "已保存"
+cloud_synced   = "已同步"
+cloud_upload   = "未发送到云端"
+cloud_download = "云端有更新"
+conflict       = "需处理：同一位置被分别修改了"
+worktree       = "工作副本"
+tips_hint      = "输入 tips 查看命令"
+
+[git.status]
+untracked  = { short = "新文件", detail = "还没有保存过的文件" }
+modified   = { short = "已修改", detail = "内容发生了变化的文件" }
+deleted    = { short = "已删除", detail = "被删除的文件" }
+renamed    = { short = "已重命名", detail = "名字发生了变化的文件" }
+conflicted = { short = "冲突", detail = "同一个地方被分别修改了，需要选择保留哪个版本" }
+staged     = { short = "已选择", detail = "下次保存时会包含的文件" }
+clean      = { short = "没有变更", detail = "所有内容都已保存" }
+
+[git.terms]
+add      = { short = "添加", detail = "将文件加入下次保存" }
+commit   = { short = "保存", detail = "将修改记录为一个快照" }
+push     = { short = "上传", detail = "将保存的记录发送到云端" }
+pull     = { short = "下载", detail = "从云端获取最新的内容" }
+merge    = { short = "合并", detail = "将分开进行的工作合到一起" }
+conflict = { short = "冲突", detail = "同一个地方被不同的人分别修改了" }
+branch   = { short = "复制后工作", detail = "在不影响原始文件的情况下单独工作" }
+checkout = { short = "切换", detail = "切换到另一个工作版本" }
+stash    = { short = "临时保存", detail = "暂时收起当前的修改" }
+HEAD     = { short = "当前版本", detail = "你正在查看的版本" }
+staging  = { short = "选择中", detail = "正在选择下次保存要包含的文件" }
+remote   = { short = "云端", detail = "文件的共享位置（如 GitHub）" }
+diff     = { short = "变更内容", detail = "上次保存以来发生了什么变化" }
+worktree = { short = "工作副本", detail = "同时打开同一个项目的另一个版本。就像在不同的浏览器标签页中打开不同的页面" }
+
+[terminal.terms]
+permission_denied = { short = "权限错误", detail = "这个操作需要管理员权限" }
+not_found         = { short = "未找到", detail = "指定的文件或命令不存在" }
+timeout           = { short = "超时", detail = "操作时间过长，已被中断" }
+exit_code         = { short = "结果", detail = "0 表示成功，其他数字表示出错" }
+[claude.terms]
+tool_use          = { short = "执行工具", detail = "Claude 正在执行文件操作或命令" }
+context_window    = { short = "记忆范围", detail = "Claude 一次能记住的内容量" }
+token             = { short = "文字量", detail = "Claude 处理文本的单位" }
+compact           = { short = "整理记忆", detail = "压缩 Claude 的记忆以腾出空间" }
+permission_prompt = { short = "确认", detail = "Claude 在操作前请求你的许可" }

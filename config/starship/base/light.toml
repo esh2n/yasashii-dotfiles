@@ -1,0 +1,96 @@
+# yasashii — light
+# Palette: calm blue (#2e7d9c) accent, dimmed status
+
+format = """
+$directory\
+$line_break\
+${custom.git_info}\
+$character"""
+
+right_format = """${custom.tips_hint}"""
+
+[directory]
+format = "[$path](bold #2e7d9c)"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = "{{HOME_DIR_NAME}}"
+
+[custom.git_info]
+command = """
+  conflict=$(git status --porcelain 2>/dev/null | grep -c '^UU' || true)
+  if [ "$conflict" -gt 0 ]; then
+    echo "{{GIT_ICON}} ⚠ {{CONFLICT_LABEL}}"
+    exit 0
+  fi
+  # Worktree detection
+  wt=""
+  common_dir=$(cd "$(git rev-parse --git-common-dir 2>/dev/null)" 2>/dev/null && pwd)
+  git_dir=$(cd "$(git rev-parse --git-dir 2>/dev/null)" 2>/dev/null && pwd)
+  if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ]] && \
+     [[ "$common_dir" != "$git_dir" ]]; then
+    wt_branch=$(git branch --show-current 2>/dev/null || echo "")
+    wt="{{WORKTREE_LABEL}}: ${wt_branch}"
+  fi
+  s=$(git status --porcelain 2>/dev/null | grep -v '^?' | grep -c '.' || true)
+  u=$(git status --porcelain 2>/dev/null | grep -c '^?' || true)
+  total=$((s + u))
+  ahead=$(git rev-list --count @{upstream}..HEAD 2>/dev/null || echo 0)
+  behind=$(git rev-list --count HEAD..@{upstream} 2>/dev/null || echo 0)
+  parts=""
+  if [ "$total" -gt 0 ]; then
+    parts="{{UNSAVED_LABEL}}: ${total}{{COUNTER}}"
+  fi
+  if [ "$ahead" -gt 0 ]; then
+    [ -n "$parts" ] && parts="${parts}  "
+    parts="${parts}{{CLOUD_UPLOAD_LABEL}}: ${ahead}{{COUNTER}}"
+  fi
+  if [ "$behind" -gt 0 ]; then
+    [ -n "$parts" ] && parts="${parts}  "
+    parts="${parts}{{CLOUD_DOWNLOAD_LABEL}}: ${behind}{{COUNTER}}"
+  fi
+  if [ -n "$parts" ]; then
+    if [ -n "$wt" ]; then
+      echo "{{GIT_ICON}} ${wt} · ${parts}"
+    else
+      echo "{{GIT_ICON}} ${parts}"
+    fi
+  else
+    if [ -n "$wt" ]; then
+      echo "{{GIT_ICON}} ${wt}"
+    else
+      echo "{{GIT_ICON}} {{ALL_SAVED_LABEL}}"
+    fi
+  fi
+"""
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+format = "[$output](dimmed)\n"
+shell = ["bash", "--noprofile", "--norc"]
+
+[git_branch]
+disabled = true
+[git_status]
+disabled = true
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[custom.tips_hint]
+command = "echo '{{TIPS_HINT}}'"
+when = "true"
+format = "[$output](dimmed)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[cmd_duration]
+disabled = true
+[package]
+disabled = true
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = true
+[golang]
+disabled = true

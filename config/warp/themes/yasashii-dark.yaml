@@ -1,0 +1,31 @@
+# yasashii — Warp dark theme
+# Muted teal accent on deep navy background
+
+name: 'yasashii dark'
+accent: '#7ec8c8'
+background: '#1a1b26'
+foreground: '#c0caf5'
+cursor: '#7ec8c8'
+selection: '#33467c'
+selection_foreground: '#c0caf5'
+details: darker
+
+terminal_colors:
+  normal:
+    black: '#414868'
+    red: '#f7768e'
+    green: '#9ece6a'
+    yellow: '#e8a060'
+    blue: '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan: '#7ec8c8'
+    white: '#a9b1d6'
+  bright:
+    black: '#565f89'
+    red: '#f7768e'
+    green: '#9ece6a'
+    yellow: '#e8a060'
+    blue: '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan: '#7ec8c8'
+    white: '#c0caf5'

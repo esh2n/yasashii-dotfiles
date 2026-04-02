@@ -1,0 +1,14 @@
+# Glossary schema definition
+# Each language file must follow this structure
+#
+# Adding a new language:
+#   1. Copy en.toml to <code>.toml
+#   2. Translate all short/detail values
+#   3. Add the language to [languages] below
+#   4. Run ./scripts/generate.sh
+
+[languages]
+ja = "日本語"
+en = "English"
+zh = "中文"
+ko = "한국어"

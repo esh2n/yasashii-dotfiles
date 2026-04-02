@@ -1,0 +1,31 @@
+# yasashii — Warp light theme
+# Calm blue accent on warm white background
+
+name: 'yasashii light'
+accent: '#2e7d9c'
+background: '#fafafa'
+foreground: '#3b4261'
+cursor: '#2e7d9c'
+selection: '#d4d8e8'
+selection_foreground: '#3b4261'
+details: lighter
+
+terminal_colors:
+  normal:
+    black: '#3b4261'
+    red: '#c4463a'
+    green: '#587539'
+    yellow: '#c47a20'
+    blue: '#2e7d9c'
+    magenta: '#7847bd'
+    cyan: '#2e7d9c'
+    white: '#6c7086'
+  bright:
+    black: '#565f89'
+    red: '#c4463a'
+    green: '#587539'
+    yellow: '#c47a20'
+    blue: '#2e7d9c'
+    magenta: '#7847bd'
+    cyan: '#2e7d9c'
+    white: '#3b4261'

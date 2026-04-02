@@ -1,0 +1,31 @@
+# yasashii — Warp sakura theme
+# Muted rose accent on dark purple background
+
+name: 'yasashii sakura'
+accent: '#b06898'
+background: '#2a2030'
+foreground: '#e0def4'
+cursor: '#b06898'
+selection: '#44375e'
+selection_foreground: '#e0def4'
+details: darker
+
+terminal_colors:
+  normal:
+    black: '#3a2e48'
+    red: '#eb6f92'
+    green: '#9ccfd8'
+    yellow: '#c88040'
+    blue: '#c4a7e7'
+    magenta: '#b06898'
+    cyan: '#9ccfd8'
+    white: '#908caa'
+  bright:
+    black: '#524f67'
+    red: '#eb6f92'
+    green: '#9ccfd8'
+    yellow: '#c88040'
+    blue: '#c4a7e7'
+    magenta: '#b06898'
+    cyan: '#9ccfd8'
+    white: '#e0def4'

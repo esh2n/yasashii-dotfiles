@@ -1,0 +1,117 @@
+{
+  "env": {
+    "YASASHII": "1",
+    "ECC_HOOK_PROFILE": "standard",
+    "ECC_DISABLED_HOOKS": "",
+    "ECC_ROOT": "",
+    "CLAUDE_PLUGIN_ROOT": ""
+  },
+  "language": "Japanese",
+  "theme": "dark-ansi",
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(echo *)",
+      "Bash(mkdir *)",
+      "Bash(node *)",
+      "Bash(npx *)",
+      "Bash(pwd)",
+      "Bash(which *)",
+      "Bash(whoami)",
+      "Edit(./**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Read(**)",
+      "Write(./**)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"確認が必要です\" with title \"Claude Code\" sound name \"Ping\"'"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"完了しました\" with title \"Claude Code\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/run-with-flags.js\" \"post:quality-gate\" \"scripts/hooks/quality-gate.js\" \"standard,strict\"",
+            "timeout": 30,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-start.js\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/run-with-flags.js\" \"stop:session-end\" \"scripts/hooks/session-end.js\" \"minimal,standard,strict\"",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/run-with-flags.js\" \"stop:cost-tracker\" \"scripts/hooks/cost-tracker.js\" \"minimal,standard,strict\"",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.yasashii/claude/beginner/statusline.py"
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "php-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  }
+}

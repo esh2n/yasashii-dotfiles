@@ -1,0 +1,8 @@
+config/starship/generated/
+docs/
+~/.claude-mem-encrypted/
+~/
+.yasashii/.config
+.yasashii/.welcomed
+*.backup.*
+.DS_Store

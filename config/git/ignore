@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+vendor/
+.venv/
+
+# Build
+dist/
+build/
+*.o
+*.pyc
+__pycache__/
+
+# Version managers
+.tool-versions
+.mise.toml
+
+# Logs
+*.log
+npm-debug.log*

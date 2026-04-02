@@ -1,0 +1,54 @@
+# やさしい日本語
+
+# --- Prompt labels (used by starship) ---
+[prompt]
+save_status = "保存状態"
+unsaved     = "ファイルの変更"
+all_saved   = "保存済み"
+cloud_synced   = "同期済み"
+cloud_upload   = "クラウドに未送信"
+cloud_download = "クラウドに更新あり"
+conflict       = "要対応：同じ箇所が別々に変更されました"
+worktree       = "ワークツリー"
+tips_hint      = "tips でコマンド一覧"
+
+# --- Git status (used by git-friendly, Ctrl+H detail) ---
+[git.status]
+untracked  = { short = "新しい", detail = "まだ保存されていないファイル" }
+modified   = { short = "編集済み", detail = "中身が変わったファイル" }
+deleted    = { short = "削除", detail = "消されたファイル" }
+renamed    = { short = "名前変更", detail = "名前が変わったファイル" }
+conflicted = { short = "競合", detail = "同じ箇所を別々に変更してしまった状態。どちらを使うか選ぶ必要があります" }
+staged     = { short = "選択中", detail = "次の保存に含まれるファイル" }
+clean      = { short = "変更なし", detail = "すべて保存済みです" }
+
+# --- Git terms (used by git-friendly, Claude) ---
+[git.terms]
+add      = { short = "追加", detail = "ファイルを次の保存に含める" }
+commit   = { short = "保存", detail = "変更をまとめて記録する" }
+push     = { short = "アップロード", detail = "保存した記録をクラウドに送る" }
+pull     = { short = "ダウンロード", detail = "クラウドの最新の状態を取得する" }
+merge    = { short = "統合", detail = "別々に進めた作業をひとつにまとめる" }
+conflict = { short = "競合", detail = "同じ箇所を別々に変更してしまった状態" }
+branch   = { short = "コピーして作業", detail = "元のファイルに影響を与えず、別の場所で作業すること" }
+checkout = { short = "切り替え", detail = "作業する場所を変える" }
+stash    = { short = "一時保存", detail = "今の変更を一時的にしまっておく" }
+HEAD     = { short = "今のバージョン", detail = "今開いているバージョン" }
+staging  = { short = "選択中", detail = "次の保存に含めるファイルを選んでいる状態" }
+remote   = { short = "クラウド", detail = "ファイルの共有先（GitHub など）" }
+diff     = { short = "変更箇所", detail = "前回の保存から何が変わったか" }
+worktree = { short = "ワークツリー", detail = "同じプロジェクトの別ブランチを、別フォルダで同時に開く機能。切り替えなしで両方の作業ができます" }
+
+# --- Terminal terms ---
+[terminal.terms]
+permission_denied = { short = "権限エラー", detail = "この操作には管理者権限が必要です" }
+not_found         = { short = "見つかりません", detail = "指定されたファイルやコマンドが見つかりません" }
+timeout           = { short = "時間切れ", detail = "処理に時間がかかりすぎて中断されました" }
+exit_code         = { short = "結果", detail = "0 なら成功、それ以外はエラー" }
+# --- Claude terms ---
+[claude.terms]
+tool_use          = { short = "ツール実行", detail = "Claude がファイル操作やコマンドを実行すること" }
+context_window    = { short = "記憶の範囲", detail = "Claude が一度に覚えていられる量" }
+token             = { short = "文字量", detail = "Claude が処理するテキストの単位" }
+compact           = { short = "記憶の整理", detail = "Claude の記憶を圧縮して空きを作ること" }
+permission_prompt = { short = "確認", detail = "Claude が操作する前にあなたに許可を求めています" }

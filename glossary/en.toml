@@ -1,0 +1,49 @@
+# Friendly English
+
+[prompt]
+save_status = "Save status"
+unsaved     = "files changed"
+all_saved   = "all saved"
+cloud_synced   = "synced"
+cloud_upload   = "not sent to cloud"
+cloud_download = "cloud has updates"
+conflict       = "needs attention: same part changed separately"
+worktree       = "working copy"
+tips_hint      = "type tips for commands"
+
+[git.status]
+untracked  = { short = "New", detail = "A file that hasn't been saved yet" }
+modified   = { short = "Changed", detail = "A file whose contents have been modified" }
+deleted    = { short = "Deleted", detail = "A file that has been removed" }
+renamed    = { short = "Renamed", detail = "A file whose name has been changed" }
+conflicted = { short = "Conflict", detail = "The same part was changed separately. You need to choose which version to keep" }
+staged     = { short = "Selected", detail = "Files that will be included in the next save" }
+clean      = { short = "No changes", detail = "Everything is saved" }
+
+[git.terms]
+add      = { short = "Add", detail = "Include a file in the next save" }
+commit   = { short = "Save", detail = "Record your changes as a snapshot" }
+push     = { short = "Upload", detail = "Send your saved changes to the cloud" }
+pull     = { short = "Download", detail = "Get the latest changes from the cloud" }
+merge    = { short = "Combine", detail = "Bring together work done separately" }
+conflict = { short = "Conflict", detail = "The same part was changed by different people" }
+branch   = { short = "Work on a copy", detail = "Work separately without affecting the original" }
+checkout = { short = "Switch", detail = "Change which version you're working on" }
+stash    = { short = "Set aside", detail = "Temporarily put away your current changes" }
+HEAD     = { short = "Current version", detail = "The version you're looking at right now" }
+staging  = { short = "Selecting", detail = "Choosing which files to include in the next save" }
+remote   = { short = "Cloud", detail = "Where files are shared (e.g. GitHub)" }
+diff     = { short = "What changed", detail = "The differences since the last save" }
+worktree = { short = "Working copy", detail = "Opening another version of the same project at the same time. Like having different pages open in separate browser tabs" }
+
+[terminal.terms]
+permission_denied = { short = "Permission error", detail = "This action requires admin access" }
+not_found         = { short = "Not found", detail = "The specified file or command doesn't exist" }
+timeout           = { short = "Timed out", detail = "The operation took too long and was stopped" }
+exit_code         = { short = "Result", detail = "0 means success, anything else is an error" }
+[claude.terms]
+tool_use          = { short = "Running a tool", detail = "Claude is performing a file operation or command" }
+context_window    = { short = "Memory range", detail = "How much Claude can remember at once" }
+token             = { short = "Text amount", detail = "The unit of text Claude processes" }
+compact           = { short = "Tidying memory", detail = "Compressing Claude's memory to free up space" }
+permission_prompt = { short = "Confirmation", detail = "Claude is asking your permission before proceeding" }

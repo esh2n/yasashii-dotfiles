@@ -1,0 +1,70 @@
+# yasashii git settings
+# These defaults make git easier to use
+
+[init]
+    # New projects use "main" as the default branch name
+    defaultBranch = main
+
+[push]
+    # Only push the current branch
+    default = simple
+    # Automatically set up tracking on first push (no need for -u flag)
+    autoSetupRemote = true
+
+[pull]
+    # Keep history clean when downloading changes
+    rebase = true
+
+[core]
+    # Show Japanese/Chinese/Korean filenames correctly
+    quotepath = false
+    # Global gitignore file
+    excludesfile = ~/.config/git/ignore
+    # Use delta for better diffs
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+    line-numbers = true
+    side-by-side = false
+
+[diff]
+    colorMoved = default
+    algorithm = histogram
+
+[help]
+    # Suggest corrections for mistyped commands
+    autocorrect = prompt
+
+[rerere]
+    # Remember how you resolved conflicts (auto-apply next time)
+    enabled = true
+
+[fetch]
+    prune = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+
+[ghq]
+    # Where to store cloned projects (visible in Finder as "projects")
+    root = ~/projects
+
+[alias]
+    # Short forms
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    # Visual log
+    lg = log --oneline --graph --decorate --all
+    # Last commit
+    last = log -1 HEAD --stat
